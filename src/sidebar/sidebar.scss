@@ -1,0 +1,132 @@
+@import '../assets/mixins.scss';
+@import '../assets/variables.scss';
+
+.sidebar-wrapper {
+    @include width(360);
+    min-height: calc(100vh - 6.25vw);
+    @include padding-upside(30, 60);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .icons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        @include margin-b(30);
+
+        .side-user {
+            @include icon (40%, '../images/side-icon.png');
+            @include w-h(40, 40);
+        }
+        .side-more {
+            @include icon(35%, '../images/more.png');
+            @include w-h(40, 40);
+        }
+    }
+    .side-avatar {
+        @include w-h(130, 130);
+        border-radius: 100px;
+        background: 
+            url('../images/side-avatar.png') center/6.8vw no-repeat, 
+            radial-gradient(white 3.9vw, transparent 3.9vw 8.125vw), 
+            conic-gradient($border 25%, $orange 25% 100%);
+        position: relative;
+        @include margin-b(30);
+    }
+    .side-avatar::after {
+        content: '2';
+        color: white;
+        @include font-size(12);
+        text-align: center;
+        line-height: 1.8vw;
+        @include absolute-r(50,-13);
+        @include w-h(30, 30);
+        background-color: $orange;
+        border-radius: 30px;
+    }
+    .side-title {
+        @include font-size(16);
+        line-height: 1.875vw;
+        color: $greyBlue60;
+        @include margin-b(10);
+    }
+    .email {
+        @include font-size(14);
+        line-height: 1.875vw;
+        color: $greyBlue80;
+    }
+    .dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        @include width(240);
+        @include margin-t(40);
+        border: solid $greyBlue95;
+        border-width: 2px 0 0 2px;
+        border-radius: 1vw;
+
+        .dashboard-elements {
+            border: solid $greyBlue95;
+            border-width: 0 2px 2px 0;
+            @include w-h(118, 120);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            @include padding-upside(25,0);
+            @include font-size(12);
+            color: $greyBlue80;
+
+            .dashboard-image {
+                @include w-h(20, 20);
+            }
+        }
+        .dashboard-elements:nth-child(2) {
+            border-radius: 0 15px 0 0;
+        }
+        .dashboard-elements:nth-child(7) {
+            border-radius: 0 0 0 15px;
+        }
+        .dashboard-elements:nth-child(8) {
+            border-radius: 0 0 15px 0;
+        }
+        .dashboard-elements:hover {
+            color: $greyBlue60;
+            background-color: white;
+            position: relative;
+            z-index: 4;
+            transform: scale(1.16);
+            border-radius: 1vw;
+        }
+        .dashboard-elements:hover::after {
+            content: '';
+            @include absolute-r(15,15);
+            @include w-h(7,7);
+            background-color: $orange;
+            border-radius: 10px;
+        }
+        
+    }
+    .contacts {
+        display: flex;
+        justify-content: space-between;
+        @include padding-upside(22, 25);
+        border-radius: 40px;
+        border: 2px solid $greyBlue95;
+        margin-top: auto;
+
+        .social-logo {
+            display: block;
+            @include w-h(30, 30);
+            @include margin-r(10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-logo:nth-child(5) {
+            margin-right: 0;
+        }
+    }
+    
+}

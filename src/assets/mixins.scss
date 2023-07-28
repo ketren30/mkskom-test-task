@@ -1,0 +1,79 @@
+@mixin width($w) {
+    width: #{calc($w /16)}vw;
+}
+@mixin height($v) {
+    height: #{calc($v / 16)}vw;
+}
+@mixin width-height($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin w-h($w, $h) {
+    width: #{calc($w / 16)}vw;
+    height: #{calc($h / 16)}vw;
+}
+@mixin margin-t($v) {
+    margin-top: #{calc($v / 16)}vw;
+}
+@mixin margin-b($v) {
+    margin-bottom: #{calc($v / 16)}vw;
+}
+@mixin margin-r($v) {
+    margin-right: #{calc($v / 16)}vw;
+}
+@mixin margin-l($v) {
+    margin-left: #{calc($v / 16)}vw;
+}
+@mixin margin($t, $r, $b, $l) {
+    margin: #{calc($t / 16)}vw #{calc($r / 16)}vw #{calc($b / 16)}vw #{calc($l / 16)}vw;
+}
+@mixin margin-upside($up, $side) {
+    margin: #{calc($up / 16)}vw #{calc($side / 16)}vw
+}
+@mixin margin-all($v) {
+    margin: #{calc($v / 16)}vw
+}
+@mixin padding-t($v) {
+    padding-top: #{calc($v / 16)}vw;
+}
+@mixin padding-b($v) {
+    padding-bottom: #{calc($v / 16)}vw;
+}
+@mixin padding-r($v) {
+    padding-right: #{calc($v / 16)}vw;
+}
+@mixin padding-l($v) {
+    padding-left: #{calc($v / 16)}vw;
+}
+@mixin padding($t, $r, $b, $l) {
+    padding: #{calc($t / 16)}vw #{calc($r / 16)}vw #{calc($b / 16)}vw #{calc($l / 16)}vw;
+}
+@mixin padding-upside($up, $side) {
+    padding: #{calc($up / 16)}vw #{calc($side / 16)}vw
+}
+@mixin padding-all($v) {
+    margin: #{calc($v / 16)}vw
+}
+@mixin absolute-l($top, $left) {
+    position: absolute;
+    top: #{calc($top / 16)}vw;
+    left: #{calc($left / 16)}vw;
+}
+@mixin absolute-r($top, $right) {
+    position: absolute;
+    top: #{calc($top / 16)}vw;
+    right: #{calc($right / 16)}vw;
+}
+@mixin font-size($px) {
+    font-size: #{calc($px / 16)}rem;
+}
+@mixin icon($back-size, $url) {
+    @include w-h(50, 50);
+    border-radius: 100px;
+    background-color: white;
+    background-size: $back-size;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url($url);
+}
+

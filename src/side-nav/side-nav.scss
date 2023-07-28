@@ -1,0 +1,41 @@
+@import '../assets/mixins.scss';
+@import '../assets/variables.scss';
+
+.nav-wrapper {
+    @include padding-upside(30, 25);
+    min-height: calc(100vh - 6.25vw);
+    border-right: 2px solid $greyBlue95;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .signs, .users {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    @for $i from 1 through 6 {
+        .nav-icon#{$i} {
+            @include icon(35%, '../images/nav-icon-#{$i}.png');
+            @include margin-b(20);
+        }
+    }
+    
+    .avatar {
+        @include w-h(50, 50);
+        border-radius: 50px;
+        @include margin-b(20);
+    }
+    .status {
+        @include w-h(10, 10);
+        background-color: $orange;
+        border-radius: 15px;
+        @include absolute-r(0, 0);
+        z-index: 2;
+    }
+    .nav-icon7 {
+        @include icon(35%, '../images/nav-icon-7.png');
+    }
+    
+}

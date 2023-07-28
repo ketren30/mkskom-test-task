@@ -1,0 +1,87 @@
+@import '../assets/variables.scss';
+@import '../assets/mixins.scss';
+
+
+%icon {
+    @include w-h(50, 50);
+        border-radius: 100px;
+        background-color: white;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+}
+.header-wrapper {
+    width: 100%;
+    @include height(100);
+    display: flex;
+    align-items: center;
+    background-color: $background;
+    @include padding-upside(0, 25);
+    border-bottom: 2px solid $greyBlue95;
+
+    .header-menu-icon {
+        @include icon(50%, '../images/header-menu.png');
+        @include margin-r(35);
+    }
+    .header-title {
+        @include font-size(18);
+        color: $greyBlue50;
+    }
+    .navigation {
+        @include margin-upside(0, 80);
+        display: flex;
+        align-items: center;
+        .menu-link {
+            @include font-size(13);
+            color: $greyBlue70;
+            @include margin-r(25);
+        }
+        .more-menu {
+            background-image: url(../images/more.png);
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            @include w-h(30, 30);
+        }
+    }
+    
+    
+    .form-wrapper {
+        position: relative;
+        @include margin-r(80);
+
+        .search {
+            @include w-h(420, 50);
+            border-radius: 30px;
+            background-color: white;
+            @include padding-l(60);
+            padding-bottom: 1%;
+        }
+        .search::placeholder {
+            color: $greyBlue80;
+            @include font-size(12);
+        }
+        .search-btn {
+            @include absolute-l(16, 26);
+            @include w-h(17, 17);
+            background-image: url('../images/search.png');
+        }
+        .search-arrow {
+            @include absolute-r(19, 26);
+            @include w-h(7, 11);
+            background-image: url('../images/search-arrow.png');
+        }
+    }
+    .user-name {
+        @include font-size(13);
+        color: $greyBlue60;
+        @include margin(0, 30, 0, 15);
+    }
+    .alerts {
+        @include icon(35%, '../images/alerts.png');
+        @include margin-r(10);
+    }
+    .close {
+        @include icon(40%, '../images/closing.png');
+    }
+}
