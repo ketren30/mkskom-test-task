@@ -3,6 +3,7 @@ import './App.scss';
 import { SideNav } from './side-nav/side-nav';
 import { Header } from './header/header';
 import { Sidebar } from './sidebar/sidebar';
+import { MainContent } from './main-content/main-content';
 
 function App() {
   const [searchValue, setSearchValue] = useState();
@@ -13,6 +14,7 @@ function App() {
       <main className='main-wrapper'>
         <SideNav/>
         <Sidebar/>
+        <MainContent search={searchValue}/>
       </main>
     </div>
   );

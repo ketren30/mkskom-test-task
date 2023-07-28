@@ -52,7 +52,7 @@
     padding: #{calc($up / 16)}vw #{calc($side / 16)}vw
 }
 @mixin padding-all($v) {
-    margin: #{calc($v / 16)}vw
+    padding: #{calc($v / 16)}vw
 }
 @mixin absolute-l($top, $left) {
     position: absolute;
