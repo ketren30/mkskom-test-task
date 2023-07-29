@@ -51,7 +51,7 @@
         @include margin-r(80);
 
         .search {
-            @include w-h(420, 50);
+            @include w-h(380, 50);
             border-radius: 30px;
             background-color: white;
             @include padding-l(60);

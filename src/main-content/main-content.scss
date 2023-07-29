@@ -1,5 +1,6 @@
 @import '../assets/mixins.scss';
 @import '../assets/variables.scss';
+
 %adding {
     position: relative;
     @include font-size(13);
@@ -17,168 +18,187 @@
 
 .content-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
     background-color: white;
     border-radius: 1vw;
-    height: fit-content;
+    @include height(1015);
     @include margin(30, 30, 30, 0);
     width: 100%;
 
-    .notes {
-        @include w-h(290, 615);
-        @include padding(30, 20, 60, 20);
-        border: solid $greyBlue97;
-        border-width: 0 2px 2px 0;
+    .notes-labels {
+        display: flex;
+        flex-direction: column;
+    
+        .notes {
+            @include w-h(290, 615);
+            @include padding(30, 20, 60, 20);
+            border: solid $greyBlue97;
+            border-width: 0 2px 2px 0;
+            flex-grow: 1;
 
-        .new-note {
-            @include height(50);
-            width: 100%;
-            background-color: $orange;
-            border-radius: 30px;
-            color: white;
-            @include font-size(12);
-            font-weight: 900;
-            @include margin-b(45);
-            position: relative;
-            box-shadow: 0px 10px 30px 0px #FF663333;
+            .new-note {
+                @include height(50);
+                width: 100%;
+                background-color: $orange;
+                border-radius: 30px;
+                color: white;
+                @include font-size(12);
+                font-weight: 900;
+                @include margin-b(45);
+                position: relative;
+                box-shadow: 0px 10px 30px 0px #FF663333;
+            }
+            .new-note:before {
+                content: '';
+                @include absolute-l(15, 27);
+                @include w-h(16, 20);
+                background-image: url(../images/new-note.png);
+                z-index: 1;
+            }
+            .note-item {
+                width: 100%;
+                position: relative;
+                @include padding(0, 20, 0, 70);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                @include margin-b(15);
+                @include font-size(13);
+                color: $greyBlue60;
+
+                .number {
+                    color: $greyBlue70;
+                    line-height: 1.875vw;
+                }
+            }
+            .note-item::before {
+                content: '';
+                @include absolute-l(8, 25);
+                top: calc((100% - 1vw) /2);
+                @include w-h(20, 16);
+                background-image: url(../images/folder.png);
+            }
+            .note-item:first-of-type {
+                background-color: white;
+                border-radius: 30px;
+                border: 2px solid $greyBlue97;
+                @include padding(10, 20, 10, 70);
+                box-shadow: 0px 10px 30px 0px #26334D08;
+            }
+            .add-folder {
+                @extend %adding;
+                @include margin-t(32);
+            }
         }
-        .new-note:before {
-            content: '';
-            @include absolute-l(15, 27);
-            @include w-h(16, 20);
-            background-image: url(../images/new-note.png);
-            z-index: 1;
+
+        .labels {
+            @include padding-all(40);
+            border-right: 2px solid $greyBlue95;
+            @include width(290);
+            flex-grow: 1;
+    
+            .label-title {
+                line-height: 1.5vw;
+                @include font-size(13);
+                color: $greyBlue60;
+                @include margin-b(30);
+            }
+    
+            @for $i from 1 through 5 {
+                .label#{$i} {
+                    color: $greyBlue60;
+                    @include padding-l(50);
+                    @include font-size(13);
+                    line-height: 1.5vw;
+                    @include margin-b(17);
+                    position: relative;
+                }
+                .label#{$i}::before {
+                    content: '';
+                    @include w-h(18, 14);
+                    @include absolute-l(calc((100% - 0.875vw) / 2), 0);
+                    background-image: url(../images/label#{$i}.png);
+                }
+            }
+            .add-label {
+                @extend %adding;
+                @include margin-t(0);
+                @include padding-l(50);
+            }
+            .add-label::before {
+                left: 0;
+            }
         }
-        .note-item {
+    }
+
+    .panel-images {
+
+
+        .panel {
+            @include height(85);
             width: 100%;
-            position: relative;
-            @include padding(0, 20, 0, 70);
+            border-bottom: 2px solid $greyBlue95;
+            @include padding(25, 20, 20, 20);
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            @include margin-b(15);
-            @include font-size(13);
-            color: $greyBlue60;
+            flex-grow: 1;
 
-            .number {
-                color: $greyBlue70;
-                line-height: 1.875vw;
-            }
-        }
-        .note-item::before {
-            content: '';
-            @include absolute-l(8, 25);
-            top: calc((100% - 1vw) /2);
-            @include w-h(20, 16);
-            background-image: url(../images/folder.png);
-        }
-        .note-item:first-of-type {
-            background-color: white;
-            border-radius: 30px;
-            border: 2px solid $greyBlue97;
-            @include padding(10, 20, 10, 70);
-            box-shadow: 0px 10px 30px 0px #26334D08;
-        }
-        .add-folder {
-            @extend %adding;
-            @include margin-t(32);
-        }
-    }
-
-    .panel {
-        @include height(85);
-        width: calc(100% - 18.25vw);
-        border-bottom: 2px solid $greyBlue95;
-        @include padding(25, 20, 20, 20);
-        display: flex;
-        justify-content: space-between;
-
-        @mixin control-icon($url, $size) {
-            @include w-h(40, 40);
-            border-radius: 20px;
-            border: 2px solid $greyBlue97;
-            background-image: url($url);
-            background-size: $size;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .control {
-            display: flex;
-            .switch {
-                .flex {
-                    @include control-icon('../images/flex.png', 55%);
-                    border-radius: 15px 0 0 15px;
-                    @include width(43);
-                    border-width: 2px 1px 2px 2px;
-                }
-                .grid {
-                    @include control-icon('../images/grid.png', 55%);
-                    border-radius: 0 15px 15px 0;
-                    border-width: 2px 2px 2px 1px;
-                }
-            }
-            .delete {
-                @include control-icon('../images/delete.png', 40%);
-                @include margin-l(10);
-            }
-        }
-        .search {
-            position: relative;
-            .search-input {
-                @include w-h(180, 40);
-                @include padding(7, 0, 7, 49);
-                border: 2px solid $greyBlue97;
-                box-shadow: 0px 2px 5px 0px #26334D08;
+            @mixin control-icon($url, $size) {
+                @include w-h(40, 40);
                 border-radius: 20px;
-                color: $greyBlue70;
-                @include font-size(10);
+                border: 2px solid $greyBlue97;
+                background-image: url($url);
+                background-size: $size;
+                background-repeat: no-repeat;
+                background-position: center;
             }
-            .search-icon {
-                @include w-h(13.5, 13.5);
-                @include absolute-l(0, 19.8);
-                top: calc((100% - 0.84vw) / 2);
-                background-image: url('../images/search-content.png')
+            .control {
+                display: flex;
+                .switch {
+                    .flex {
+                        @include control-icon('../images/flex.png', 55%);
+                        border-radius: 15px 0 0 15px;
+                        @include width(43);
+                        border-width: 2px 1px 2px 2px;
+                    }
+                    .grid {
+                        @include control-icon('../images/grid.png', 55%);
+                        border-radius: 0 15px 15px 0;
+                        border-width: 2px 2px 2px 1px;
+                    }
+                }
+                .delete {
+                    @include control-icon('../images/delete.png', 40%);
+                    @include margin-l(10);
+                }
             }
-        }
-    }
-
-    .labels {
-        @include padding-all(40);
-        border-right: 2px solid $greyBlue95;
-        @include width(290);
-        height: 100%;
-
-        .label-title {
-            line-height: 1.5vw;
-            @include font-size(13);
-            color: $greyBlue60;
-            @include margin-b(30);
-        }
-
-        @for $i from 1 through 5 {
-            .label#{$i} {
-                color: $greyBlue60;
-                @include padding-l(50);
-                @include font-size(13);
-                line-height: 1.5vw;
-                @include margin-b(17);
+            .search {
                 position: relative;
-            }
-            .label#{$i}::before {
-                content: '';
-                @include w-h(18, 14);
-                @include absolute-l(calc((100% - 0.875vw) / 2), 0);
-                background-image: url(../images/label#{$i}.png);
+                .search-input {
+                    @include w-h(180, 40);
+                    @include padding(7, 0, 7, 49);
+                    border: 2px solid $greyBlue97;
+                    box-shadow: 0px 2px 5px 0px #26334D08;
+                    border-radius: 20px;
+                    color: $greyBlue70;
+                    @include font-size(10);
+                }
+                .search-icon {
+                    @include w-h(13.5, 13.5);
+                    @include absolute-l(0, 19.8);
+                    top: calc((100% - 0.84vw) / 2);
+                    background-image: url('../images/search-content.png')
+                }
             }
         }
-        .add-label {
-            @extend %adding;
-            @include margin-t(0);
-            @include padding-l(50);
-        }
-        .add-label::before {
-            left: 0;
+
+        
+
+        .images {
+            @include padding-all(45);
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            
         }
     }
 }

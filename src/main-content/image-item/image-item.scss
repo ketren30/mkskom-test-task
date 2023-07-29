@@ -1,0 +1,62 @@
+@import '../../assets/mixins.scss';
+@import '../../assets/variables.scss';
+
+.image-wrapper {
+    @include margin-r(30);
+    width: calc((100% - 5.65vw) / 4);
+    @include padding-all(5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include margin-b(30);
+
+    .image-cut {
+        @include height(110);
+        width: 100%;
+        outline: 2px solid $greyBlue97;
+        outline-offset: 5px;
+        border-radius: 0.5vw;
+        
+        .fetched-image {
+            @include width-height(100%, 100%);
+            object-fit: cover;
+            border-radius: 0.5vw;
+        }
+    }
+
+    .description {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        @include font-size(12);
+        color: $greyBlue60;
+        @include margin-t(20);
+        width: 80%;
+        line-height: 1.25vw;
+    }
+    .description::first-letter {
+        text-transform: uppercase;
+    }
+    .date {
+        @include font-size(10);
+        font-weight: 900;
+        color: $greyBlue70;
+        line-height: 1.25vw;
+        @include margin-t(10);
+    }
+}
+
+.image-wrapper:nth-child(4n) {
+    margin-right: 0;
+}
+.image-wrapper:nth-child(n+12) {
+    margin-bottom: 0;
+}
+.image-wrapper:hover {
+    .description {
+        color: $orange;
+    }
+    .image-cut {
+        outline-color: $orange;
+    }
+}
