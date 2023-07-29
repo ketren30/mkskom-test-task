@@ -170,6 +170,9 @@
                     @include control-icon('../images/delete.png', 40%);
                     @include margin-l(10);
                 }
+                .menu-icon {
+                    @include control-icon(('../images/header-menu.png'), 40%)
+                }
             }
             .search {
                 position: relative;
@@ -199,6 +202,61 @@
             flex-wrap: wrap;
             width: 100%;
             
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .main-wrapper {
+        padding: 4.1vw;
+        height: fit-content;
+
+        .content-wrapper {
+            margin: 0;
+            border-radius: 10px;
+            height: fit-content;
+
+            .panel-images {
+                width: 100%;
+
+                .panel {
+                    height: 85px;
+                    padding: 25px 20px 20px 20px;
+
+                    .switch {
+                        .flex  {
+                            @include width-height(11.1vw, 11.1vw);
+                            border-radius: 100px 0 0 100px;
+                        }
+                        .grid {
+                            @include width-height(11.1vw, 11.1vw);
+                            border-radius: 0 100px 100px 0;
+                            margin-right: 10px;
+                        }
+                    }
+                    .menu-icon, .delete {
+                        @include width-height(11.1vw, 11.1vw);
+                        border-radius: 50px;
+                        margin-right: 10px;
+                    }
+                    .search {
+
+                        .search-icon {
+                            position: static;
+                            @include width-height(11.1vw, 11.1vw);
+                            background-repeat: no-repeat;
+                            background-size: 40%;
+                            background-position: center;
+                            border: 2px solid $greyBlue97;
+                            border-radius: 25px;
+                        }
+                    }
+                }
+
+                .images {
+                    padding: 5.55vw;
+                }
+            }
         }
     }
 }

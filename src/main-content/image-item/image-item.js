@@ -1,6 +1,6 @@
 import './image-item.scss';
 
-export const ImageItem = ({image}) => {
+export const ImageItem = ({image, width}) => {
     const date = image.created_at.slice(0, 10).split('-').reverse().join('.');
     
     return (

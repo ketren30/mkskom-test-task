@@ -84,4 +84,26 @@
     .close {
         @include icon(40%, '../images/closing.png');
     }
+    .mobile-user {
+        @include icon(40%, '../images/user-icon.png');
+    }
+}
+
+@media (max-width:600px) {
+    .header-wrapper {
+        height: 100px;
+        padding: 25px;
+
+        .header-menu-icon, .mobile-user {
+            @include width-height(50px, 50px);
+
+        }
+        .mobile-user {
+            margin-left: auto;
+        }
+        .header-title {
+            font-size: 18px;
+            padding-left: 35px;
+        }
+    }
 }

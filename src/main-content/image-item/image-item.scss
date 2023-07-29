@@ -60,3 +60,38 @@
         outline-color: $orange;
     }
 }
+
+@media (max-width: 600px) {
+    .image-wrapper {
+        width: calc((100% - 2.8vw) / 2);
+        margin: 0 2.7vw 5.55vw 0;
+
+
+        .image-cut {
+            height: 30.5vw;
+            width: 93%;
+            border-radius: 2.7vw;
+
+            .fetched-image {
+                border-radius: 2vw;
+            }
+        }
+        .description {
+            line-height: 5.55vw;
+            margin: 4.1vw 0 1.4vw;
+        }
+        .date {
+            line-height: 5.55vw;
+            margin: 0;
+        }
+    }
+    .image-wrapper:nth-child(2n) {
+        margin-right: 0;
+    }
+    .image-wrapper:nth-child(n+12) {
+        margin-bottom: 5.55vw;
+    }
+    .image-wrapper:nth-child(n+15) {
+        margin-bottom: 0;
+    }
+}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import userIcon from '../images/user-icon.png';
 import './header.scss';
 
-export const Header = ({getSearchValue}) => {
+export const Header = ({getSearchValue, width}) => {
     const [searchValue, setSearchValue] = useState('');
     const handleInput = (e) => {
         setSearchValue(e.target.value);
@@ -18,7 +18,7 @@ export const Header = ({getSearchValue}) => {
         <header className="header-wrapper">
             <button className="header-menu-icon"></button>
             <h2 className='header-title'>Constructor</h2>
-            <nav className='navigation'>
+            {width>=600 && <><nav className='navigation'>
                 <a href='' className="menu-link">Dashboard</a>
                 <a href='' className="menu-link">About Us</a>
                 <a href='' className="menu-link">News</a>
@@ -40,7 +40,9 @@ export const Header = ({getSearchValue}) => {
             <img src={userIcon} alt=''></img>
             <h3 className="user-name">Clayton Santos</h3>
             <button className='alerts'></button>
-            <button className='close'></button>
+            <button className='close'></button></>}
+
+            {width<600 && <button className='mobile-user'></button>}
         </header>
     )
 }

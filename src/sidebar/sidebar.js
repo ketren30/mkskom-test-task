@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './sidebar.scss';
 
-export const Sidebar = () => {
+export const Sidebar = ({width}) => {
     const [hovered, setHovered] = useState(false);
     const handleColor = (name, index) => {
         return hovered===index? 
@@ -11,7 +11,7 @@ export const Sidebar = () => {
 
     const dashboard = ['Dashboard', 'Notes', 'Invoice', 'Files', 'Events', 'Teams', 'Message', 'Settings'];
     const socials = ['phone', 'email', 'action', 'tg', 'wa'];
-    return (
+    if (width>=600) return (
         <aside className='sidebar-wrapper'>
             <div className='icons'>
                 <button className='side-user'></button>
@@ -41,4 +41,5 @@ export const Sidebar = () => {
             </div>
         </aside>
     )
+    else return null
 }

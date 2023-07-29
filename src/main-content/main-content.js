@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './main-content.scss';
 import { ImageItem } from './image-item/image-item';
 
-export const MainContent = ({search}) => {
+export const MainContent = ({search, width}) => {
     const notes = [
         ['All notes', 43], 
         ['Design', 23], 
@@ -27,7 +27,7 @@ export const MainContent = ({search}) => {
 
     return (
         <article className='content-wrapper'>
-            <section className='notes-labels'>
+            {width>=600 && <section className='notes-labels'>
                 <div className='notes'>
                     <button className='new-note'>New Note</button>
                     {notes.map((item) => <div className='note-item'>
@@ -42,11 +42,12 @@ export const MainContent = ({search}) => {
                     {labels.map((item, ind) => <h5 className={`label${ind+1}`}>{item}</h5>)}
                     <button className='add-label'>New Label</button>
                 </div>
-            </section>
+            </section>}
 
             <section className='panel-images'>
                 <div className='panel'>
                     <div className='control'>
+                        {width<600 && <button className='menu-icon'></button>}
                         <div className='switch'>
                             <button className='flex'></button>
                             <button className='grid'></button>
@@ -54,7 +55,7 @@ export const MainContent = ({search}) => {
                         <button className='delete'></button>
                     </div>
                     <div className='search'>
-                        <input className='search-input' placeholder='Search'></input>
+                        {width>=600 && <input className='search-input' placeholder='Search'></input>}
                         <button className='search-icon'></button>
                     </div>
                 </div>
