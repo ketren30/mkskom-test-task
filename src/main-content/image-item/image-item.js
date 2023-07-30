@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import './image-item.scss';
 
-export const ImageItem = ({image, width}) => {
+export const ImageItem = ({image, index, setChosen, chosen}) => {
     const date = image.created_at.slice(0, 10).split('-').reverse().join('.');
     
+    
     return (
-        <div className='image-wrapper'>
+        <div className={index===chosen?'image-wrapper-clicked':'image-wrapper'} onClick={()=>setChosen(index)}>
             <div className='image-cut'>
                 <img className='fetched-image' src={image.urls.small} alt={image.description}/>
                 

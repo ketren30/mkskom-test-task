@@ -153,6 +153,7 @@
             }
             .control {
                 display: flex;
+
                 .switch {
                     .flex {
                         @include control-icon('../images/flex.png', 55%);
@@ -176,6 +177,7 @@
             }
             .search {
                 position: relative;
+
                 .search-input {
                     @include w-h(180, 40);
                     @include padding(7, 0, 7, 49);
@@ -189,7 +191,9 @@
                     @include w-h(13.5, 13.5);
                     @include absolute-l(0, 19.8);
                     top: calc((100% - 0.84vw) / 2);
-                    background-image: url('../images/search-content.png')
+                    background-image: url('../images/search-content.png');
+                    background-size: 80%;
+                    background-position: center;
                 }
             }
         }
@@ -203,7 +207,13 @@
             width: 100%;
             
         }
+        .images-grid {
+            @include padding-all(40); 
+            grid-template-rows: repeat(2, 14.56vw);
+            row-gap: 1.25vw;
+            grid-template-columns: 14.56vw 1.25vw 6.68vw 1.25vw 6.68vw 1.25vw 14.56vw;
     }
+}
 }
 
 @media (max-width: 600px) {
@@ -240,21 +250,40 @@
                         margin-right: 10px;
                     }
                     .search {
+                        position: relative;
 
                         .search-icon {
-                            position: static;
                             @include width-height(11.1vw, 11.1vw);
                             background-repeat: no-repeat;
                             background-size: 40%;
                             background-position: center;
                             border: 2px solid $greyBlue97;
                             border-radius: 25px;
+                            z-index: 2;
+                            top:0;
+                            left:-10vw;
+                        }
+                        .search-input {
+                            height: 11.1vw;
+                            width: 84vw;
+                            position: absolute;
+                            left:-83vw;
+                            z-index: 1;
+                            background-color: white;
+                            font-size: 15px;
+                            padding-left: 20px;
+                            border-radius: 30px;
                         }
                     }
                 }
 
                 .images {
                     padding: 5.55vw;
+                }
+                .images-grid {
+                    grid-template-columns: 1fr 0 0 0 0 0 0;
+                    grid-template-rows: repeat(5, 87vw);
+                    row-gap: 8.3vw;
                 }
             }
         }
