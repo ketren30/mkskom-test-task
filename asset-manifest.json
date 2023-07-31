@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/mkskom-test-task/static/css/main.34877fba.css",
-    "main.js": "/mkskom-test-task/static/js/main.38f039f5.js",
+    "main.css": "/mkskom-test-task/static/css/main.899d0d18.css",
+    "main.js": "/mkskom-test-task/static/js/main.2b3b28fd.js",
     "static/media/Notes1600.png": "/mkskom-test-task/static/media/Notes1600.dad7488b186d7aca3c78.png",
     "static/media/Notes360.png": "/mkskom-test-task/static/media/Notes360.3e36586fa07bd75db49e.png",
     "static/media/Roboto-Bold.ttf": "/mkskom-test-task/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/side-avatar.png": "/mkskom-test-task/static/media/side-avatar.d28d5620921c8fc758f1.png",
     "index.html": "/mkskom-test-task/index.html",
-    "main.34877fba.css.map": "/mkskom-test-task/static/css/main.34877fba.css.map",
-    "main.38f039f5.js.map": "/mkskom-test-task/static/js/main.38f039f5.js.map"
+    "main.899d0d18.css.map": "/mkskom-test-task/static/css/main.899d0d18.css.map",
+    "main.2b3b28fd.js.map": "/mkskom-test-task/static/js/main.2b3b28fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.34877fba.css",
-    "static/js/main.38f039f5.js"
+    "static/css/main.899d0d18.css",
+    "static/js/main.2b3b28fd.js"
   ]
 }
