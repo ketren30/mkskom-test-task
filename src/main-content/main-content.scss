@@ -251,6 +251,7 @@
                     }
                     .search {
                         position: relative;
+                        height: 11.1vw;
 
                         .search-icon {
                             @include width-height(11.1vw, 11.1vw);
@@ -260,13 +261,12 @@
                             border-radius: 30px;
                             z-index: 2;
                             top:0;
-                            left:-11vw;
+                            left: calc(100% - 11.1vw);
                         }
                         .search-input {
                             height: 11.1vw;
-                            width: 84vw;
+                            width: 100%;
                             position: absolute;
-                            left:-84vw;
                             z-index: 1;
                             background-color: white;
                             font-size: 15px;

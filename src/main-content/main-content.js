@@ -73,15 +73,15 @@ export const MainContent = ({search, width}) => {
 
             <section className='panel-images'>
                 <div className='panel'>
-                    <div className='control'>
+                    {(!isSearch || width>600) && <div className='control'>
                         {width<=600 && <button className='menu-icon'></button>}
                         <div className='switch'>
                             <button className='flex' onClick={() => setIsGrid(false)}></button>
                             <button className='grid' onClick={() => setIsGrid(true)}></button>
                         </div>
                         <button className='delete'></button>
-                    </div>
-                    <div className='search'>
+                    </div>}
+                    <div className='search' style={{width: isSearch &&  '100%'}}>
                         {(width>600 || isSearch) && 
                         <input 
                             className='search-input' 
