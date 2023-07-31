@@ -6,14 +6,14 @@
     @include font-size(13);
     color: $greyBlue60;
     font-weight: 700;
-    @include padding-l(70)
+    @include padding-l(68)
 } 
 %adding::before {
     content: '';
     @include absolute-l(8, 25);
     top: calc((100% - 1.25vw) /2);
     @include w-h(20, 20);
-    background-image: url(../images/add.png);
+    background: url(../images/add.png) center / 90% no-repeat;
 }
 
 .content-wrapper {
@@ -29,8 +29,8 @@
         flex-direction: column;
     
         .notes {
-            @include w-h(290, 615);
-            @include padding(30, 20, 60, 20);
+            @include width(290);
+            @include padding(30, 20, 30, 20);
             border: solid $greyBlue97;
             border-width: 0 2px 2px 0;
             flex-grow: 1;
@@ -86,12 +86,12 @@
             }
             .add-folder {
                 @extend %adding;
-                @include margin-t(32);
+                @include margin-t(22);
             }
         }
 
         .labels {
-            @include padding-all(40);
+            @include padding(54, 38, 38, 38);
             border-right: 2px solid $greyBlue95;
             @include width(290);
             flex-grow: 1;
@@ -108,19 +108,20 @@
                     color: $greyBlue60;
                     @include padding-l(50);
                     @include font-size(13);
-                    line-height: 1.5vw;
-                    @include margin-b(17);
+                    line-height: 1.875vw;
+                    @include margin-b(15);
                     position: relative;
                 }
                 .label#{$i}::before {
                     content: '';
                     @include w-h(18, 14);
-                    @include absolute-l(calc((100% - 0.875vw) / 2), 0);
+                    @include absolute-l(13, 5);
                     background-image: url(../images/label#{$i}.png);
                 }
             }
             .add-label {
                 @extend %adding;
+                @include height(30);
                 @include margin-t(0);
                 @include padding-l(50);
             }
@@ -131,7 +132,6 @@
     }
 
     .panel-images {
-
 
         .panel {
             @include height(85);
@@ -146,10 +146,7 @@
                 @include w-h(40, 40);
                 border-radius: 20px;
                 border: 2px solid $greyBlue97;
-                background-image: url($url);
-                background-size: $size;
-                background-repeat: no-repeat;
-                background-position: center;
+                background: url($url) center / $size no-repeat;
             }
             .control {
                 display: flex;
@@ -191,15 +188,12 @@
                     @include w-h(13.5, 13.5);
                     @include absolute-l(0, 19.8);
                     top: calc((100% - 0.84vw) / 2);
-                    background-image: url('../images/search-content.png');
-                    background-size: 80%;
-                    background-position: center;
+                    background: url('../images/search-content.png') center / 80% no-repeat;
                 }
             }
         }
 
         
-
         .images {
             @include padding-all(45);
             display: flex;
@@ -230,18 +224,24 @@
                 width: 100%;
 
                 .panel {
-                    height: 85px;
-                    padding: 25px 20px 20px 20px;
+                    height: fit-content;
+                    padding: 25px 20px 25px 20px;
+
+                    .control {
+                        height: fit-content;
+                    }
 
                     .switch {
                         .flex  {
-                            @include width-height(11.1vw, 11.1vw);
+                            @include width-height(12vw, 11.1vw);
                             border-radius: 100px 0 0 100px;
+                            background-size: 50%;
                         }
                         .grid {
-                            @include width-height(11.1vw, 11.1vw);
+                            @include width-height(12vw, 11.1vw);
                             border-radius: 0 100px 100px 0;
-                            margin-right: 10px;
+                            margin-right: 8px;
+                            background-size: 45%;
                         }
                     }
                     .menu-icon, .delete {
@@ -254,20 +254,19 @@
 
                         .search-icon {
                             @include width-height(11.1vw, 11.1vw);
-                            background-repeat: no-repeat;
                             background-size: 40%;
                             background-position: center;
                             border: 2px solid $greyBlue97;
-                            border-radius: 25px;
+                            border-radius: 30px;
                             z-index: 2;
                             top:0;
-                            left:-10vw;
+                            left:-11vw;
                         }
                         .search-input {
                             height: 11.1vw;
                             width: 84vw;
                             position: absolute;
-                            left:-83vw;
+                            left:-84vw;
                             z-index: 1;
                             background-color: white;
                             font-size: 15px;

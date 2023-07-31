@@ -3,4 +3,19 @@
 .main-wrapper {
   display: flex;
   background-color: $background;
+
+  
+}
+.App {
+  position: relative;
+    .template {
+        position: absolute;
+        width: 1600px;
+        height: 1175px;
+        top:0;
+        left:0;
+        opacity: 0.4;
+        display: block;
+      }
+
 }

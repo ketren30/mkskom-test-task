@@ -70,10 +70,6 @@
 @mixin icon($back-size, $url) {
     @include w-h(50, 50);
     border-radius: 100px;
-    background-color: white;
-    background-size: $back-size;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url($url);
+    background: url($url) center / $back-size no-repeat, white;
 }
 

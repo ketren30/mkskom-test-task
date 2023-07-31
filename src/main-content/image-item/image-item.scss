@@ -41,7 +41,7 @@
         overflow: hidden;
         @include font-size(12);
         color: $greyBlue60;
-        @include margin-t(20);
+        @include margin-t(21);
         width: 80%;
         line-height: 1.25vw;
     }
@@ -81,10 +81,10 @@
 }
 
 @media (max-width: 600px) {
-    .image-wrapper {
+    .image-wrapper, .image-wrapper-clicked {
         width: calc((100% - 2.8vw) / 2);
         margin: 0 2.7vw 5.55vw 0;
-
+        padding-top: 1.8vw;
 
         .image-cut {
             height: 30.5vw;
@@ -92,19 +92,19 @@
             border-radius: 2.7vw;
 
             .fetched-image {
-                border-radius: 2vw;
+                border-radius: 1.3vw;
             }
         }
         .description {
             line-height: 5.55vw;
-            margin: 4.1vw 0 1.4vw;
+            margin: 5vw 0 1.4vw 0;
         }
         .date {
             line-height: 5.55vw;
             margin: 0;
         }
     }
-    .image-wrapper:nth-child(2n) {
+    .images div:nth-child(2n) {
         margin-right: 0;
     }
     .image-wrapper:nth-child(n+12) {

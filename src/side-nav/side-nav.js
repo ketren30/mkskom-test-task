@@ -2,7 +2,7 @@ import './side-nav.scss';
 
 export const SideNav = ({width}) => {
     const arr = [1,1,1,1,1,1];
-    if (width>=600) return (
+    if (width>600) return (
         <nav className='nav-wrapper'>
             <section className='signs'>
                 {arr.map((item, index) => <button className={`nav-icon${index+1}`} key={index}/>)}

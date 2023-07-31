@@ -18,7 +18,7 @@ export const Header = ({getSearchValue, width}) => {
         <header className="header-wrapper">
             <button className="header-menu-icon"></button>
             <h2 className='header-title'>Constructor</h2>
-            {width>=600 && <><nav className='navigation'>
+            {width>600 && <><nav className='navigation'>
                 <a href='' className="menu-link">Dashboard</a>
                 <a href='' className="menu-link">About Us</a>
                 <a href='' className="menu-link">News</a>
@@ -27,22 +27,21 @@ export const Header = ({getSearchValue, width}) => {
                 <button className="more-menu"></button>
             </nav>
             
-            <form className="form-wrapper">
+            <form className="form-wrapper" onSubmit={(e)=> e.preventDefault()}>
                 <input 
                     className="search" 
                     placeholder='Search Transactions and Documents' 
                     onChange={handleInput}
                     value={searchValue}
                 ></input>
-                <button className="search-btn" onClick={onSearchClick} type='button'></button>
-                <button className="search-arrow" onClick={onSearchClick} type='button'></button>
+                <button className="search-btn" onClick={onSearchClick} ></button>
+                <button className="search-arrow" onClick={onSearchClick} ></button>
             </form>
-            <img src={userIcon} alt=''></img>
             <h3 className="user-name">Clayton Santos</h3>
             <button className='alerts'></button>
             <button className='close'></button></>}
 
-            {width<600 && <button className='mobile-user'></button>}
+            {width<=600 && <button className='mobile-user'></button>}
         </header>
     )
 }

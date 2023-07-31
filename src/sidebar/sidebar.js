@@ -11,7 +11,7 @@ export const Sidebar = ({width}) => {
 
     const dashboard = ['Dashboard', 'Notes', 'Invoice', 'Files', 'Events', 'Teams', 'Message', 'Settings'];
     const socials = ['phone', 'email', 'action', 'tg', 'wa'];
-    if (width>=600) return (
+    if (width>600) return (
         <aside className='sidebar-wrapper'>
             <div className='icons'>
                 <button className='side-user'></button>

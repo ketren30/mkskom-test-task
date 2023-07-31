@@ -54,7 +54,7 @@ export const MainContent = ({search, width}) => {
 
     return (
         <article className='content-wrapper'>
-            {width>=600 && <section className='notes-labels'>
+            {width>600 && <section className='notes-labels'>
                 <div className='notes'>
                     <button className='new-note'>New Note</button>
                     {notes.map((item) => <div className='note-item'>
@@ -74,7 +74,7 @@ export const MainContent = ({search, width}) => {
             <section className='panel-images'>
                 <div className='panel'>
                     <div className='control'>
-                        {width<600 && <button className='menu-icon'></button>}
+                        {width<=600 && <button className='menu-icon'></button>}
                         <div className='switch'>
                             <button className='flex' onClick={() => setIsGrid(false)}></button>
                             <button className='grid' onClick={() => setIsGrid(true)}></button>
@@ -82,7 +82,7 @@ export const MainContent = ({search, width}) => {
                         <button className='delete'></button>
                     </div>
                     <div className='search'>
-                        {(width>=600 || isSearch) && 
+                        {(width>600 || isSearch) && 
                         <input 
                             className='search-input' 
                             placeholder='Search'

@@ -2,14 +2,6 @@
 @import '../assets/mixins.scss';
 
 
-%icon {
-    @include w-h(50, 50);
-        border-radius: 100px;
-        background-color: white;
-        background-size: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
-}
 .header-wrapper {
     width: 100%;
     @include height(100);
@@ -28,19 +20,18 @@
         color: $greyBlue50;
     }
     .navigation {
-        @include margin-upside(0, 80);
+        @include margin-upside(0, 78);
         display: flex;
         align-items: center;
+
         .menu-link {
             @include font-size(13);
             color: $greyBlue70;
             @include margin-r(25);
+            font-weight: 600;
         }
         .more-menu {
-            background-image: url(../images/more.png);
-            background-size: 80%;
-            background-repeat: no-repeat;
-            background-position: center;
+            background: url(../images/more.png) center / 60% no-repeat;
             @include w-h(30, 30);
         }
     }
@@ -51,7 +42,7 @@
         @include margin-r(80);
 
         .search {
-            @include w-h(380, 50);
+            @include w-h(425, 50);
             border-radius: 30px;
             background-color: white;
             @include padding-l(60);
@@ -64,18 +55,26 @@
         .search-btn {
             @include absolute-l(16, 26);
             @include w-h(17, 17);
-            background-image: url('../images/search.png');
+            background: url('../images/search.png') center / 90% no-repeat;
         }
         .search-arrow {
             @include absolute-r(19, 26);
             @include w-h(7, 11);
-            background-image: url('../images/search-arrow.png');
+            background: url('../images/search-arrow.png') center / 90% no-repeat;
         }
     }
     .user-name {
         @include font-size(13);
         color: $greyBlue60;
-        @include margin(0, 30, 0, 15);
+        @include margin(0, 32, 0, 48);
+        position: relative;
+    }
+    .user-name::before {
+        content: '';
+        @include w-h(20, 20);
+        @include absolute-l(0, -32);
+        background: url('../images/user-icon.png') center / 95% no-repeat;
+        z-index: 1;
     }
     .alerts {
         @include icon(35%, '../images/alerts.png');
@@ -96,22 +95,38 @@
         @include icon(40%, '../images/user-icon.png');
     }
 }
+@media (max-width: 1100px) {
+    .header-wrapper {
+
+        .navigation {
+            .menu-link {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
 
 @media (max-width:600px) {
     .header-wrapper {
         height: 100px;
-        padding: 25px;
+        padding: 25px; 
+    
+    
 
         .header-menu-icon, .mobile-user {
             @include width-height(50px, 50px);
 
+        }
+        .header-menu-icon {
+            background-size: 35%;
         }
         .mobile-user {
             margin-left: auto;
         }
         .header-title {
             font-size: 18px;
-            padding-left: 35px;
+            padding-left: 27px;
+            font-weight: 600;
         }
     }
 }
