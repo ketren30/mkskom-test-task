@@ -36,66 +36,73 @@
         }
     }
     
-    
-    .form-wrapper {
-        position: relative;
-        @include margin-r(80);
+    .side-info {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        
+        .form-wrapper {
+            position: relative;
+            @include margin-r(80);
 
-        .search {
-            @include w-h(425, 50);
+            .search {
+                @include w-h(425, 50);
+                border-radius: 30px;
+                background-color: white;
+                @include padding-l(60);
+                padding-bottom: 1%;
+            }
+            .search::placeholder {
+                color: $greyBlue80;
+                @include font-size(12);
+            }
+            .search-btn {
+                @include absolute-l(16, 26);
+                @include w-h(17, 17);
+                background: url('../images/search.png') center / 90% no-repeat;
+            }
+            .search-arrow {
+                @include absolute-r(19, 26);
+                @include w-h(7, 11);
+                background: url('../images/search-arrow.png') center / 90% no-repeat;
+            }
+        }
+        .user-name {
+            @include font-size(13);
+            color: $greyBlue60;
+            @include margin(0, 32, 0, 48);
+            position: relative;
+        }
+        .user-name::before {
+            content: '';
+            @include w-h(20, 20);
+            @include absolute-l(0, -32);
+            background: url('../images/user-icon.png') center / 95% no-repeat;
+            z-index: 1;
+        }
+        .alerts {
+            @include icon(35%, '../images/alerts.png');
+            @include margin-r(10);
+            position: relative;
+        }
+        .alerts::after {
+            content: '';
+            @include w-h(10, 10);
+            background-color: $pink;
             border-radius: 30px;
-            background-color: white;
-            @include padding-l(60);
-            padding-bottom: 1%;
+            @include absolute-r(0, 0);
         }
-        .search::placeholder {
-            color: $greyBlue80;
-            @include font-size(12);
+        .close {
+            @include icon(40%, '../images/closing.png');
         }
-        .search-btn {
-            @include absolute-l(16, 26);
-            @include w-h(17, 17);
-            background: url('../images/search.png') center / 90% no-repeat;
         }
-        .search-arrow {
-            @include absolute-r(19, 26);
-            @include w-h(7, 11);
-            background: url('../images/search-arrow.png') center / 90% no-repeat;
+        
+        .mobile-user {
+            @include icon(40%, '../images/user-icon.png');
         }
     }
-    .user-name {
-        @include font-size(13);
-        color: $greyBlue60;
-        @include margin(0, 32, 0, 48);
-        position: relative;
-    }
-    .user-name::before {
-        content: '';
-        @include w-h(20, 20);
-        @include absolute-l(0, -32);
-        background: url('../images/user-icon.png') center / 95% no-repeat;
-        z-index: 1;
-    }
-    .alerts {
-        @include icon(35%, '../images/alerts.png');
-        @include margin-r(10);
-        position: relative;
-    }
-    .alerts::after {
-        content: '';
-        @include w-h(10, 10);
-        background-color: $pink;
-        border-radius: 30px;
-        @include absolute-r(0, 0);
-    }
-    .close {
-        @include icon(40%, '../images/closing.png');
-    }
-    .mobile-user {
-        @include icon(40%, '../images/user-icon.png');
-    }
-}
-@media (max-width: 1100px) {
+
+@media (max-width: 1300px) {
     .header-wrapper {
 
         .navigation {

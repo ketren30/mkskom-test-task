@@ -27,19 +27,22 @@ export const Header = ({getSearchValue, width}) => {
                 <button className="more-menu"></button>
             </nav>
             
-            <form className="form-wrapper" onSubmit={(e)=> e.preventDefault()}>
-                <input 
-                    className="search" 
-                    placeholder='Search Transactions and Documents' 
-                    onChange={handleInput}
-                    value={searchValue}
-                ></input>
-                <button className="search-btn" onClick={onSearchClick} ></button>
-                <button className="search-arrow" onClick={onSearchClick} ></button>
-            </form>
-            <h3 className="user-name">Clayton Santos</h3>
-            <button className='alerts'></button>
-            <button className='close'></button></>}
+            <div className='side-info'>
+                <form className="form-wrapper" onSubmit={(e)=> e.preventDefault()}>
+                    <input 
+                        className="search" 
+                        placeholder='Search Transactions and Documents' 
+                        onChange={handleInput}
+                        value={searchValue}
+                    ></input>
+                    <button className="search-btn" onClick={onSearchClick} ></button>
+                    <button className="search-arrow" onClick={onSearchClick} ></button>
+                </form>
+                <h3 className="user-name">Clayton Santos</h3>
+                <button className='alerts'></button>
+                <button className='close'></button>
+            </div>   
+            </>}
 
             {width<=600 && <button className='mobile-user'></button>}
         </header>

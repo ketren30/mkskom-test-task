@@ -115,8 +115,8 @@
                 .label#{$i}::before {
                     content: '';
                     @include w-h(18, 14);
-                    @include absolute-l(13, 5);
-                    background-image: url(../images/label#{$i}.png);
+                    @include absolute-l(10, 5);
+                    background: url(../images/label#{$i}.png) top / 90% no-repeat;
                 }
             }
             .add-label {
